@@ -74,6 +74,7 @@ const questions = {
 
         },
     ],
+    
     Intern = [
         {
             type:"input",
