@@ -2,8 +2,8 @@ const Engineer = require('../lib/Engineer.js');
 
 test ("Can set Github account via constructor", () => {
     const github = 'amyyhh';
-    const engineer = new Engineer(github);
-    expect(engineer.github).toBe(github);
+    const testval = new Engineer(testval);
+    expect(engineer.getGithub()).toBe(testval);
 });
 test ("getRole() should return \"Engineer\"", () => {
     const testval = "Engineer"
