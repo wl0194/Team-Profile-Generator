@@ -4,6 +4,8 @@ const Manager = require('./lib/Manager.js');
 const inquirer = require('inquirer');
 const fs = requre('fs');
 const path = require('path');
+const generateHTML = require('./dist/main.html');
+
 
 const questions = {
     Manager = [
@@ -168,3 +170,22 @@ const questions = {
     ]
 };
 
+function writeToFile(fileName, data) {
+    return  fs.writeFile(path.join(__dirname, fileName), data, function(err) {
+  if(err)
+  console.error(err);
+    })
+  };
+  
+  // Create a function to initialize app
+  function init() {
+      inquirer.prompt(questions).then((inquirerResponses) => {
+          console.log('generating...');
+          writeToFile('main.html', generateHTML({ ...inquirerResponses }));
+      });
+  }
+  
+  
+  // Function call to initialize app
+  init();
+  
