@@ -1,4 +1,3 @@
-const Employee = require('./lib/Employee.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
 const Manager = require('./lib/Manager.js');
@@ -11,25 +10,44 @@ const questions = {
         {
             type:"input",
             name:"name",
-            message:"What is the manager's name?"
+            message:"What is the manager's name?",
+            validate: (value) => {
+                if(value) {
+                    return true
+                } else { return "Please enter manager's name."}
+            },
 
         },
         {
             type:"input",
             name:"id",
-            message:"What is the manager's ID?"
-
+            message:"What is the manager's ID?",
+            validate: (value) => {
+                if(value) {
+                    return true
+                } else { return "Please enter manager's ID."}
+            },
         },
         {
             type:"input",
             name:"email",
-            message:"What is the manager's email?"
+            message:"What is the manager's email?",
+            validate: (value) => {
+                if(value) {
+                    return true
+                } else { return "Please enter manager's email."}
+            },
 
         },
         {
             type:"input",
             name:"officeNumber",
-            message:"What is the manager's office number?"
+            message:"What is the manager's office number?",
+            validate: (value) => {
+                if(value) {
+                    return true
+                } else { return "Please enter manager's office number."}
+            },
 
         },
         {
@@ -45,25 +63,45 @@ const questions = {
         {
             type:"input",
             name:"name",
-            message:"What is the engineer's name?"
+            message:"What is the engineer's name?",
+            validate: (value) => {
+                if(value) {
+                    return true
+                } else { return "Please enter engineer's name."}
+            },
 
         },
         {
             type:"input",
             name:"id",
-            message:"What is the engineer's ID?"
+            message:"What is the engineer's ID?",
+            validate: (value) => {
+                if(value) {
+                    return true
+                } else { return "Please enter engineer's ID."}
+            },
 
         },
         {
             type:"input",
             name:"email",
-            message:"What is the engineer's email?"
+            message:"What is the engineer's email?",
+            validate: (value) => {
+                if(value) {
+                    return true
+                } else { return "Please enter engineer's email."}
+            },
 
         },
         {
             type:"input",
             name:"github",
-            message:"What is the engineer's GitHub account?"
+            message:"What is the engineer's GitHub account?",
+            validate: (value) => {
+                if(value) {
+                    return true
+                } else { return "Please enter engineer's Github account."}
+            },
 
         },
         {
@@ -74,30 +112,50 @@ const questions = {
 
         },
     ],
-    
+
     Intern = [
         {
             type:"input",
             name:"name",
-            message:"What is the Intern's name?"
+            message:"What is the Intern's name?",
+            validate: (value) => {
+                if(value) {
+                    return true
+                } else { return "Please enter Intern's name."}
+            },
 
         },
         {
             type:"input",
             name:"id",
-            message:"What is the Intern's ID?"
+            message:"What is the Intern's ID?",
+            validate: (value) => {
+                if(value) {
+                    return true
+                } else { return "Please enter Intern's ID."}
+            },
 
         },
         {
             type:"input",
             name:"email",
-            message:"What is Intern's email?"
+            message:"What is Intern's email?",
+            validate: (value) => {
+                if(value) {
+                    return true
+                } else { return "Please enter Intern's email."}
+            },
 
         },
         {
             type:"input",
             name:"school",
-            message:"What school is the intern attending?"
+            message:"What school is the intern attending?",
+            validate: (value) => {
+                if(value) {
+                    return true
+                } else { return "Please enter Intern's school name"}
+            },
 
         },
         {
