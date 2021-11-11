@@ -2,13 +2,13 @@ const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
 const Manager = require('./lib/Manager.js');
 const inquirer = require('inquirer');
-const fs = requre('fs');
+const fs = require('fs');
 const path = require('path');
-const generateHTML = require('./dist/main.html');
+// const generateHTML = require('./generateHTML.js');
 
-
-const questions = {
-    Manager = [
+// an array of objects 
+const questions = ([
+    Manager = 
         {
             type:"input",
             name:"name",
@@ -59,9 +59,9 @@ const questions = {
             choices:["yes", "no"]
 
         },
-    ], 
+    
 
-    Engineer = [
+    Engineer = 
         {
             type:"input",
             name:"name",
@@ -113,9 +113,9 @@ const questions = {
             choices:["yes", "no"]
 
         },
-    ],
+    ,
 
-    Intern = [
+    Intern = 
         {
             type:"input",
             name:"name",
@@ -136,7 +136,6 @@ const questions = {
                     return true
                 } else { return "Please enter Intern's ID."}
             },
-
         },
         {
             type:"input",
@@ -147,7 +146,6 @@ const questions = {
                     return true
                 } else { return "Please enter Intern's email."}
             },
-
         },
         {
             type:"input",
@@ -158,17 +156,14 @@ const questions = {
                     return true
                 } else { return "Please enter Intern's school name"}
             },
-
         },
         {
             type:"list",
             name:"addNew",
             message:"Do you want to add another employee?",
             choices:["yes", "no"]
-
         },
-    ]
-};
+]);
 
 function writeToFile(fileName, data) {
     return  fs.writeFile(path.join(__dirname, fileName), data, function(err) {
