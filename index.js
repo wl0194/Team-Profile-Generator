@@ -168,7 +168,7 @@ const internQuestions = ([
 const data = [];
 
 async function run() {
-    const {selection} = await inquirer.prompt([
+    const { selection } = await inquirer.prompt([
         {
             type: "list",
             name: "selection",
@@ -188,10 +188,10 @@ async function run() {
         case "Make Intern":
             output = await inquirer.prompt(internQuestions);
             break;
-        default: 
+        default:
             console.log("generating...");
     }
-    // data.push(output);
+    data.push(output);
 
     // console.log(data);
 
@@ -208,13 +208,13 @@ run();
 // };
 
 
-// // Create a function to initialize app
+// Create a function to initialize app
 // function init() {
-//     inquirer.prompt(managerQuestions).then((inquirerResponses) => {
-//         console.log('generating...');
-//         writeToFile('main.html', generateHTML({ ...inquirerResponses }));
-//     });
-// }
+//     // inquirer.prompt(managerQuestions).then((inquirerResponses) => {
+//     //     console.log('generating...');
+//     writeToFile('main.html', generateHTML({}));
+// };
+
 
 
 // Function call to initialize app
