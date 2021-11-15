@@ -190,22 +190,24 @@ async function run() {
             break;
         default:
             console.log("generating...");
+        writeToFile();      
     }
     data.push(output);
 
     // console.log(data);
 
-    // run();
+    run();
 }
 
 run();
 
-// function writeToFile(fileName, data) {
-//     return fs.writeFile(path.join(__dirname, fileName), data, function (err) {
-//         if (err)
-//             console.error(err);
-//     })
-// };
+function writeToFile(fileName, data) {
+    console.log(data);
+    return fs.writeFile(path.join(__dirname, fileName), data, function (err) {
+        if (err)
+            console.error(err);
+    })
+};
 
 
 // Create a function to initialize app
