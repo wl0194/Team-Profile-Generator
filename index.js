@@ -4,8 +4,9 @@ const Manager = require('./lib/Manager.js');
 const inquirer = require('inquirer');
 const fs = require('fs');
 const path = require('path');
-const generateHTML = require('./generateHTML.js');
-
+const render = require('./src/generateHTML.js');
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "main.html");
 // an array of objects 
 const managerQuestions = ([
     {
@@ -165,51 +166,54 @@ const internQuestions = ([
     },
 ]);
 
-const data = [];
+const team = [];
+function appMenu() {
 
-async function run() {
-    const { selection } = await inquirer.prompt([
-        {
-            type: "list",
-            name: "selection",
-            message: "What would you like to do?",
-            choices: ["Make Manager", "Make Engineer", "Make Intern", "Exit"]
-        },
-    ]);
-    let output;
+    async function run() {
+        const { selection } = await inquirer.prompt([
+            {
+                type: "list",
+                name: "selection",
+                message: "What would you like to do?",
+                choices: ["Make Manager", "Make Engineer", "Make Intern", "Exit"]
+            },
+        ]);
+        let output;
 
-    switch (selection) {
-        case "Make Manager":
-            output = await inquirer.prompt(managerQuestions);
-            break;
-        case "Make Engineer":
-            output = await inquirer.prompt(engineerQuestions);
-            break;
-        case "Make Intern":
-            output = await inquirer.prompt(internQuestions);
-            break;
-        default:
-            console.log("generating...");
-        writeToFile();      
+        switch (selection) {
+            case "Make Manager":
+                output = await inquirer.prompt(managerQuestions);
+                break;
+            case "Make Engineer":
+                output = await inquirer.prompt(engineerQuestions);
+                break;
+            case "Make Intern":
+                output = await inquirer.prompt(internQuestions);
+                break;
+            default:
+                console.log("generating...");
+
+                writeToFile();
+        }
+        team.push(output);
+
+        // console.log(data);
+
+        run();
     }
-    data.push(output);
 
-    // console.log(data);
 
+    function writeToFile() {
+        if (!fs.existsSync(OUTPUT_DIR)) {
+            fs.mkdirSync(OUTPUT_DIR)
+        }
+        console.log(team);
+        fs.writeFileSync(outputPath, render(team), "utf-8");
+    }
     run();
-}
 
-run();
-
-function writeToFile(fileName, data) {
-    console.log(data);
-    return fs.writeFile(path.join(__dirname, fileName), data, function (err) {
-        if (err)
-            console.error(err);
-    })
 };
-
-
+appMenu();
 // Create a function to initialize app
 // function init() {
 //     // inquirer.prompt(managerQuestions).then((inquirerResponses) => {
