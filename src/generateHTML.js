@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs");
-const render = (employees) => {
+const render = employees => {
   const html = [];
 
 
@@ -21,6 +21,8 @@ const render = (employees) => {
         <meta name="viewport" content="width=device-width, inital-scale=1.0" />
         <meta charset="UTF-8" />
         <title>Team Profile</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
@@ -33,37 +35,57 @@ const render = (employees) => {
 
 function renderManager(manager) {
   return `
-  <div>
-  <h1>${manager.getName()}</h1>
-  <h2>${manager.getId()}</h2>
-  <h3>${manager.getEmail()}</h3>
-  <h4>${manager.getofficeNumber()}</h4>
+  <div class="card employee-card mr-4 ml-4 mb-3">
+  <div class="card-header text-center">
+      <h2 class="card-title">${manager.getName()}</h2>
+      <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i> Manager </h3>
   </div>
+  <div class="card-body">
+      <ul class="list-group">
+          <li class="list-group-item">ID: ${manager.getId()}</li>
+          <li class="list-group-item">Email: <a href="mailto:{{ email }}">${manager.getEmail()}</a></li>
+          <li class="list-group-item">Office number: ${manager.getofficeNumber()}</li>
+      </ul>
+  </div>
+</div>
   `
 };
 
 function renderEngineer(engineer) {
   return `
-  <div>
-  <h1>${engineer.getName()}</h1>
-  <h2>${engineer.getId()}</h2>
-  <h3>${engineer.getEmail()}</h3>
-  <h4>${engineer.getGithub()}</h4>
+  <div class="card employee-card mr-4 ml-4 mb-3">
+  <div class="card-header text-center">
+      <h2 class="card-title">${engineer.getName()}</h2>
+      <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i> Engineer </h3>
   </div>
+  <div class="card-body">
+      <ul class="list-group">
+          <li class="list-group-item">ID: ${engineer.getId()}</li>
+          <li class="list-group-item">Email: <a href="mailto:{{ email }}">${engineer.getEmail()}</a></li>
+          <li class="list-group-item">Github: ${engineer.getGithub()}</li>
+      </ul>
+  </div>
+</div>
   `
 };
 
 function renderIntern(intern) {
   return `
-  <div>
-  <h1>${intern.getName()}</h1>
-  <h2>${intern.getId()}</h2>
-  <h3>${intern.getEmail()}</h3>
-  <h4>${intern.getSchool()}</h4>
+  <div class="card employee-card mr-4 ml-4 mb-3">
+  <div class="card-header text-center">
+      <h2 class="card-title">${intern.getName()}</h2>
+      <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i> Intern </h3>
   </div>
+  <div class="card-body">
+      <ul class="list-group">
+          <li class="list-group-item">ID: ${intern.getId()}</li>
+          <li class="list-group-item">Email: <a href="mailto:{{ email }}">${intern.getEmail()}</a></li>
+          <li class="list-group-item">Github: ${intern.getSchool()}</li>
+      </ul>
+  </div>
+</div>
   `
 };
-
 
 
 
