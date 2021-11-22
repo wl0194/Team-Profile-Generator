@@ -1,0 +1,31 @@
+h2 {
+    font-weight: bold;
+}
+
+.employee-card {
+ border: none;
+}
+
+body {
+    Font-Family: 'Muli', Sans-Serif;
+    background-color: #d6d6b1;
+    color: #FFF;
+}
+
+.card-header {
+    background: #3f3f37;
+}
+
+.card-body {
+    color: #494331;
+}
+
+a {
+    color: #BF7636;
+}
+
+a:hover {
+    color: #D9B991;
+    text-decoration: none;
+    text-transform: uppercase;
+}
