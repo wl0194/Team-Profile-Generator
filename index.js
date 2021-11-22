@@ -168,7 +168,7 @@ const internQuestions = ([
 
 const team = [];
 function appMenu() {
-console.log("hello");
+
     async function run() {
         const { selection } = await inquirer.prompt([
             {
@@ -185,6 +185,8 @@ console.log("hello");
 
                 let manager = await inquirer.prompt(managerQuestions);
                 output = new Manager(manager.name, manager.id, manager.email, manager.officeNumber)
+                
+                team.push(output);
     
                 break;
 
@@ -192,12 +194,16 @@ console.log("hello");
 
                 let engineer = await inquirer.prompt(engineerQuestions);
                 output = new Engineer(engineer.name, engineer.id, engineer.email, engineer.github)
+        
+                team.push(output);
 
                 break;
 
             case "Make Intern":
                 let intern = await inquirer.prompt(internQuestions);
                 output = new Intern(intern.name, intern.id, intern.email, intern.school)
+  
+                team.push(output);
 
                 break;
 
@@ -206,7 +212,8 @@ console.log("hello");
 
                 writeToFile();
         }
-        team.push(output);
+   
+     
 
         run();
     }
