@@ -168,7 +168,7 @@ const internQuestions = ([
 
 const team = [];
 function appMenu() {
-
+console.log("hello");
     async function run() {
         const { selection } = await inquirer.prompt([
             {
@@ -182,14 +182,31 @@ function appMenu() {
 
         switch (selection) {
             case "Make Manager":
-                output = await inquirer.prompt(managerQuestions);
+
+                let manager = await inquirer.prompt(managerQuestions);
+                // console.log("This is manager.", manager);
+
+                output = new Manager(manager.name, manager.id, manager.email, manager.officeNumber)
+                // console.log("This is the manager class.", output)
+
                 break;
+
             case "Make Engineer":
-                output = await inquirer.prompt(engineerQuestions);
+
+                let engineer = await inquirer.prompt(engineerQuestions);
+                console.log("This is engineer.", engineer);
+
+                output = new Engineer(engineer.name, engineer.id, engineer.email, engineer.github)
+                console.log("This is the engineer.", output)
+
                 break;
             case "Make Intern":
-                output = await inquirer.prompt(internQuestions);
+                let intern = await inquirer.prompt(internQuestions);
+
+                output = new Intern(intern.name, intern.id, intern.email, intern.school)
+
                 break;
+
             default:
                 console.log("generating...");
 
@@ -201,19 +218,28 @@ function appMenu() {
 
         run();
     }
-
-
-    function writeToFile() {
-        if (!fs.existsSync(OUTPUT_DIR)) {
-            fs.mkdirSync(OUTPUT_DIR)
-        }
-        console.log(team);
-        fs.writeFileSync(outputPath, render(team), "utf-8");
-    }
-    run();
-
+run();
 };
+function writeToFile() {
+    if (!fs.existsSync(OUTPUT_DIR)) {
+        fs.mkdirSync(OUTPUT_DIR)
+    }
+    console.log(team);
+    fs.writeFile(outputPath, render(team), "utf-8", (err) => {
+        if (err) {
+            throw err
+        }
+        else {
+            console.log("Successfully added");
+        }
+
+    });
+}
 appMenu();
+
+
+
+
 // Create a function to initialize app
 // function init() {
 //     // inquirer.prompt(managerQuestions).then((inquirerResponses) => {
