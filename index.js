@@ -184,25 +184,19 @@ console.log("hello");
             case "Make Manager":
 
                 let manager = await inquirer.prompt(managerQuestions);
-                // console.log("This is manager.", manager);
-
                 output = new Manager(manager.name, manager.id, manager.email, manager.officeNumber)
-                // console.log("This is the manager class.", output)
-
+    
                 break;
 
             case "Make Engineer":
 
                 let engineer = await inquirer.prompt(engineerQuestions);
-                console.log("This is engineer.", engineer);
-
                 output = new Engineer(engineer.name, engineer.id, engineer.email, engineer.github)
-                console.log("This is the engineer.", output)
 
                 break;
+
             case "Make Intern":
                 let intern = await inquirer.prompt(internQuestions);
-
                 output = new Intern(intern.name, intern.id, intern.email, intern.school)
 
                 break;
@@ -214,12 +208,13 @@ console.log("hello");
         }
         team.push(output);
 
-        // console.log(data);
-
         run();
     }
+
 run();
+
 };
+
 function writeToFile() {
     if (!fs.existsSync(OUTPUT_DIR)) {
         fs.mkdirSync(OUTPUT_DIR)
@@ -240,14 +235,3 @@ appMenu();
 
 
 
-// Create a function to initialize app
-// function init() {
-//     // inquirer.prompt(managerQuestions).then((inquirerResponses) => {
-//     //     console.log('generating...');
-//     writeToFile('main.html', generateHTML({}));
-// };
-
-
-
-// Function call to initialize app
-// init();

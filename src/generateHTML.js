@@ -5,11 +5,14 @@ const render = employees => {
 
 
   html.push(...employees
-      .filter(employee => employee.getRole() === "Manager").map(manager => renderManager(manager)));
+    .filter(employee => employee.getRole() === "Manager").map(manager => renderManager(manager)));
 
-  // html.push(...employees
-  //       .filter(employee => employee.getRole() === "Manager").map(manager => renderManager(manager)));
-  
+  html.push(...employees
+    .filter(employee => employee.getGithub() === "Engineer").map(engineer => renderEngineer(engineer)));
+
+  html.push(...employees
+    .filter(employee => employee.getSchool() === "Intern").map(intern => renderIntern(intern)));
+
 
   return `
         <!DOCTYPE html>
@@ -27,9 +30,9 @@ const render = employees => {
 </html>
         
         `
-}
+};
 
-function renderManager(manager){
+function renderManager(manager) {
   return `
   <div>
   <h1>${manager.getName()}</h1>
@@ -40,22 +43,27 @@ function renderManager(manager){
   `
 };
 
-//
-// generateHTML(data) {
+function renderEngineer(engineer) {
+  return `
+  <div>
+  <h1>${engineer.getName()}</h1>
+  <h2>${engineer.getId()}</h2>
+  <h3>${engineer.getEmail()}</h3>
+  <h4>${engineer.getGithub()}</h4>
+  </div>
+  `
+};
 
-//     return `
-//       <div>
-//        ${data.map(person => {
-//          return `
-//            ${person.role === "Manager" && `html for the manager`}
-//          `
-//       }).join('')}
-//       </div>
-//     `
-
-
-
-
+function renderIntern(intern) {
+  return `
+  <div>
+  <h1>${intern.getName()}</h1>
+  <h2>${intern.getId()}</h2>
+  <h3>${intern.getEmail()}</h3>
+  <h4>${intern.getSchool()}</h4>
+  </div>
+  `
+};
 
 
 
