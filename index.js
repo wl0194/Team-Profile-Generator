@@ -7,7 +7,7 @@ const path = require('path');
 const render = require('./src/generateHTML.js');
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "main.html");
-// an array of objects 
+
 const managerQuestions = ([
     {
         type: "input",
