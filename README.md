@@ -10,7 +10,7 @@ Node.js, npm and Express.js must be installed to use this application.
 ## Demo
 
 ![generator-demo](./assets/demo.png)
-* [video-demo](./assets/profilegen.mp4)
+* [video-demo](https://drive.google.com/drive/u/0/folders/13MemJi-IwRvPR4_UOleyuxZ_YWNOvpGO)
 
 ## Links
 
