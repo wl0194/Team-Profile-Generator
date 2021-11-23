@@ -10,7 +10,7 @@ Node.js, npm and Express.js must be installed to use this application.
 ## Demo
 
 ![generator-demo](./assets/demo.png)
-* [video-demo](https://drive.google.com/file/d/1LMwRV6akqLrtzYjR7Yb1LjFgtr25qAzM/view?usp=sharing)
+* [video-demo](https://www.youtube.com/watch?v=Rp2o7WL9Zic&ab_channel=JY)
 
 ## Links
 
