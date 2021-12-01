@@ -14,7 +14,7 @@ Node.js, npm and Express.js must be installed to use this application.
 
 ## Links
 
-* [Github](https://github.com/wl0194/Team-Profile-Generator)
+* [Github](https://github.com/wl0194)
 
 ## License
 
